@@ -12,13 +12,13 @@ app.get("/", (req, res) => {
 
 app.get("/cookie", (req, res) => {
   res
+    .cookie("token", "token value", {
+      expires: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+    })
     .status(200)
     .json({
       success: true,
       massage: "cookie has been send",
-    })
-    .cookie("token", "token value", {
-      expires: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
     });
 });
 
